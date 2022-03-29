@@ -60,28 +60,35 @@
                 <div class="panel is-primary">
                     <p class="panel-heading">Location select</p>
                     <p class="panel-block">Enter an address or select an interesting preset</p>
+
                     <div class="panel-block">
-                        <div class="control has-icons-left">
+                        <div class="control has-icons-left is-expanded">
                             <input type="text" placeholder="Address" class="input is-rounded is-fullwidth">
                             <span class="icon is-small is-left">
                                 <i class="bi-geo-alt-fill"></i>
                             </span>
                         </div>
                     </div>
+
                     <div class="panel-block">
-                        <button class="button is-primary is-fullwidth">Go!</button>
+                        <div class="control is-expanded">
+                            <div class="select is-fullwidth is-small">
+                                <select name="address">
+                                    <option selected>Try an interesting place...</option>
+                                    <option>Washington Monument, Washington, D.C.</option>
+                                    <option>Grand Canyon, Arizona</option>
+                                    <option>I.M. Pei Building, Hong Kong</option>
+                                    <option>Victoria Falls, Zambia & Zimbabwe</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="panel-block">
+                        <button class="button is-primary is-fullwidth" disabled>Go!</button>
                     </div>
                 </div>
-
-                <div class="box">
-                    Address select & autocomplete
-                    <button class="button is-primary">
-                        <span class="icon">
-                            <i></i>
-                        </span>
-                        <span>Go!</span>
-                    </button>
-                </div>
+                
             </div>
 
             <div class="column is-primary">
