@@ -5,35 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
     <title>Weather by Day</title>
 </head>
 <body>
 
     <!-- Header wrapper -->
-    <div class="container">
-        <div class="columns is-centered">
-            <div class="column is-secondary">
-                <div class="box">
-                    Header - icon title banner bar
-                </div>
-            </div>
+    <section class="hero is-small is-success mb-3">
+        <div class="hero-body">
+            <p class="title">
+                Header
+            </p>
+            <p class="subtitle">
+                icon subtitle description
+            </p>
         </div>
-    </div>
+    </section>
+
+    <!-- Info message -->
+    <section class="container mb-3">
+        <article class="message is-info">
+            <div class="message-header">
+                <p>Welcome to <strong>Weather by Day</strong></p>
+                <button class="delete" aria-label="delete"></button>
+            </div>
+            <div class="message-body">
+                Here is where we talk about what this does and how to use it.
+            </div>
+        </article>
+    </section>
 
     <!-- Main section wrapper -->
-    <div class="container">
+    <section class="container">
         <div class="columns is-centered is-one-third">
             
             <div class="column is-one-third">
-                <div class="panel is-info">
+                <div class="panel is-primary">
                     <p class="panel-heading">Date select</p>
                     <p class="panel-block">Date select by picker</p>
                     <div class="panel-block">
-                        <input type="date">
+                        <div class="control has-icons-left">
+                            <input type="date" class="input is-rounded is-fullwidth">
+                            <span class="icon is-small is-left">
+                                <i class="bi-calendar-event-fill"></i>
+                            </span>
+                        </div>
                     </div>
                     <div class="panel-block">
                         <button class="button is-primary is-fullwidth">Verify</button>
+                    </div>
+                </div>
+
+                <div class="panel is-primary">
+                    <p class="panel-heading">Location select</p>
+                    <p class="panel-block">Enter an address or select an interesting preset</p>
+                    <div class="panel-block">
+                        <div class="control has-icons-left">
+                            <input type="text" placeholder="Address" class="input is-rounded is-fullwidth">
+                            <span class="icon is-small is-left">
+                                <i class="bi-geo-alt-fill"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="panel-block">
+                        <button class="button is-primary is-fullwidth">Go!</button>
                     </div>
                 </div>
 
@@ -49,14 +85,58 @@
             </div>
 
             <div class="column is-primary">
-                <div class="box">
-                    Output display with weather facts for the selected area on the selected date
+
+                <div class="box is-info">
+                    <p class="box-heading">
+
+                    </p>
+                    <p>
+                        Output display with weather facts for the selected area on the selected date
+                    </p>
                 </div>
+
+                <article class="media">
+                    <figure class="media-left">
+                        <p class="icon">
+                            <i class="bi-umbrella"></i>
+                        </p>
+                    </figure>
+                    <div class="media-content">
+                        <div class="content">
+                            <p>Was it rainy?  It was rainy</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="media">
+                    <figure class="media-left">
+                        <p class="icon">
+                            <i class="bi-wind"></i>
+                        </p>
+                    </figure>
+                    <div class="media-content">
+                        <div class="content">
+                            <p>Wind speed and direction</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="media">
+                    <figure class="media-left">
+                        <p class="icon">
+                            <i class="bi-sun"></i>
+                        </p>
+                    </figure>
+                    <div class="media-content">
+                        <div class="content">
+                            <p>Sunrise sunset</p>
+                        </div>
+                    </div>
+                </article>
             </div>
 
         </div>
-    </div>
-
+    </section>
     
 </body>
 </html>
