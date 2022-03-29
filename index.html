@@ -12,7 +12,7 @@
 <body>
 
     <!-- Header wrapper -->
-    <section class="hero is-small is-success mb-3">
+    <header class="hero is-small is-success mb-3">
         <div class="hero-body">
             <p class="title">
                 Header
@@ -21,7 +21,7 @@
                 icon subtitle description
             </p>
         </div>
-    </section>
+    </header>
 
     <!-- Info message -->
     <section class="container mb-3">
@@ -48,7 +48,7 @@
                         <div class="control has-icons-left">
                             <input type="date" class="input is-rounded is-fullwidth">
                             <span class="icon is-small is-left">
-                                <i class="bi-calendar-event-fill"></i>
+                                <i class="bi-calendar-event-fill" aria-hidden="true"></i>
                             </span>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                     <div class="panel-block">
                         <div class="control has-icons-left is-expanded">
                             <input type="text" placeholder="Address" class="input is-rounded is-fullwidth">
-                            <span class="icon is-small is-left">
+                            <span class="icon is-small is-left" aria-hidden="true">
                                 <i class="bi-geo-alt-fill"></i>
                             </span>
                         </div>
@@ -144,6 +144,12 @@
 
         </div>
     </section>
+
+    <footer class="footer mt-6">
+        <div class="content has-text-centered">
+            <p>This application uses the CSS framework <a href="https://bulma.io">Bulma</a> and <a href="https://icons.getbootstrap.com/">Bootstrap Icons</a></p>
+        </div>
+    </footer>
     
 </body>
 </html>
