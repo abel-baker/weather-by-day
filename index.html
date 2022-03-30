@@ -15,10 +15,10 @@
     <header class="hero is-small is-success mb-3">
         <div class="hero-body">
             <p class="title">
-                Header
+                Weather by Day
             </p>
             <p class="subtitle">
-                icon subtitle description
+                <i class="bi-cloud"></i> your cosmological calendar
             </p>
         </div>
     </header>
@@ -31,7 +31,14 @@
                 <button class="delete" aria-label="delete"></button>
             </div>
             <div class="message-body">
-                Here is where we talk about what this does and how to use it.
+                <p class="block">
+                    Have you ever wondered what the weather was like on the day you were born?
+                    When it rained on the last day of your vacation, was it sunny and pleasant at home?
+                    How bad the weather must have been to rain out the fifth game of the World Series in 2008?
+                </p>
+                <p class="block">
+                    Satisfy your curiosity with Weather by Day.  Just pick a day <strong>all the way back to 1950</strong> and a place <strong>anywhere in the world</strong>.</p>
+                </p>
             </div>
         </article>
     </section>
@@ -43,7 +50,7 @@
             <div class="column is-one-third">
                 <div class="panel is-primary">
                     <p class="panel-heading">Date select</p>
-                    <p class="panel-block">Date select by picker</p>
+                    <p class="panel-block">Pick a day to remember the weather</p>
                     <div class="panel-block">
                         <div class="control has-icons-left">
                             <input type="date" class="input is-rounded is-fullwidth">
@@ -52,14 +59,11 @@
                             </span>
                         </div>
                     </div>
-                    <div class="panel-block">
-                        <button class="button is-primary is-fullwidth">Verify</button>
-                    </div>
                 </div>
 
                 <div class="panel is-primary">
                     <p class="panel-heading">Location select</p>
-                    <p class="panel-block">Enter an address or select an interesting preset</p>
+                    <p class="panel-block">Put in a city around the world </p>
 
                     <div class="panel-block">
                         <div class="control has-icons-left is-expanded">
@@ -70,7 +74,7 @@
                         </div>
                     </div>
 
-                    <div class="panel-block">
+                    <!-- <div class="panel-block">
                         <div class="control is-expanded">
                             <div class="select is-fullwidth is-small">
                                 <select name="address">
@@ -82,7 +86,7 @@
                                 </select>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     
                     <div class="panel-block">
                         <button class="button is-primary is-fullwidth" disabled>Go!</button>
@@ -94,13 +98,36 @@
             <div class="column is-primary">
 
                 <div class="box is-info">
-                    <p class="box-heading">
-
-                    </p>
-                    <p>
-                        Output display with weather facts for the selected area on the selected date
+                    <p class="box-header">
+                        <h2 class="is-size-4">July 25, 1999 in Lagos, Ethiopia</h2>
                     </p>
                 </div>
+
+                <article class="media">
+                    <figure class="media-left">
+                        <p class="icon">
+                            <i class="bi-thermometer"></i>
+                        </p>
+                    </figure>
+                    <div class="media-content">
+                        <div class="content">
+                            <p>24.1&deg; C</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="media">
+                    <figure class="media-left">
+                        <p class="icon">
+                            <i class="bi-droplet"></i>
+                        </p>
+                    </figure>
+                    <div class="media-content">
+                        <div class="content">
+                            <p>93% humidity, 91% cloud cover</p>
+                        </div>
+                    </div>
+                </article>
 
                 <article class="media">
                     <figure class="media-left">
@@ -110,7 +137,7 @@
                     </figure>
                     <div class="media-content">
                         <div class="content">
-                            <p>Was it rainy?  It was rainy</p>
+                            <p>Very low precipitation</p>
                         </div>
                     </div>
                 </article>
@@ -118,28 +145,16 @@
                 <article class="media">
                     <figure class="media-left">
                         <p class="icon">
-                            <i class="bi-wind"></i>
+                            <i class="bi-wind" title="wind speed and direction"></i>
                         </p>
                     </figure>
                     <div class="media-content">
                         <div class="content">
-                            <p>Wind speed and direction</p>
+                            <p>5 m/s SW</p>
                         </div>
                     </div>
                 </article>
-
-                <article class="media">
-                    <figure class="media-left">
-                        <p class="icon">
-                            <i class="bi-sun"></i>
-                        </p>
-                    </figure>
-                    <div class="media-content">
-                        <div class="content">
-                            <p>Sunrise sunset</p>
-                        </div>
-                    </div>
-                </article>
+                
             </div>
 
         </div>
@@ -147,7 +162,7 @@
 
     <footer class="footer mt-6">
         <div class="content has-text-centered">
-            <p>This application uses the CSS framework <a href="https://bulma.io">Bulma</a> and <a href="https://icons.getbootstrap.com/">Bootstrap Icons</a></p>
+            <p>This application uses the CSS framework <a href="https://bulma.io">Bulma</a> and <a href="https://icons.getbootstrap.com/">Bootstrap Icons</a>, geocoding by <a href="https://docs.mapbox.com/api/overview/">Mapbox</a>, and archived weather data from <a href="https://oikolab.com/api-details/">oikolab</a>.</p>
         </div>
     </footer>
     
