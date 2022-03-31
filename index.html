@@ -18,25 +18,25 @@
                 Weather by Day
             </p>
             <p class="subtitle">
-                <i class="bi-cloud"></i> your cosmological calendar
+                <i class="bi-cloud" aria-hidden="true"></i> your cosmological calendar
             </p>
         </div>
     </header>
 
     <!-- Info message -->
-    <section class="container mb-3">
+    <section id="message-container" class="container mb-3">
         <article class="message is-info">
             <div class="message-header">
                 <p>Welcome to <strong>Weather by Day</strong></p>
-                <button class="delete" aria-label="delete"></button>
+                <button id="close-message" class="delete" aria-label="Dismiss message"></button>
             </div>
             <div class="message-body">
                 <p class="block">
                     Have you ever wondered what the weather was like on the day you were born?
                     When it rained on the last day of your vacation, was it sunny and pleasant at home?
-                    How bad the weather must have been to rain out the fifth game of the World Series in 2008?
+                    How bad the weather must have been <a href="https://www.cleveland.com/weather/blog/2016/10/how_many_world_series_games_ha.html">to rain out the fifth game of the World Series</a> in 2008?
                 </p>
-                <p class="block">
+                <p class="block mb-0">
                     Satisfy your curiosity with Weather by Day.  Just pick a day <strong>all the way back to 1950</strong> and a place <strong>anywhere in the world</strong>.</p>
                 </p>
             </div>
@@ -44,16 +44,16 @@
     </section>
 
     <!-- Main section wrapper -->
-    <section class="container">
+    <main class="container">
         <div class="columns is-centered is-one-third">
             
-            <div class="column is-one-third">
+            <section class="column is-one-third">
                 <div class="panel is-primary">
                     <p class="panel-heading">Date select</p>
                     <p class="panel-block">Pick a day to remember the weather</p>
                     <div class="panel-block">
                         <div class="control has-icons-left">
-                            <input type="date" class="input is-rounded is-fullwidth">
+                            <input id="date-input" type="date" class="input is-rounded is-fullwidth">
                             <span class="icon is-small is-left">
                                 <i class="bi-calendar-event-fill" aria-hidden="true"></i>
                             </span>
@@ -67,7 +67,7 @@
 
                     <div class="panel-block">
                         <div class="control has-icons-left is-expanded">
-                            <input type="text" placeholder="Address" class="input is-rounded is-fullwidth">
+                            <input id="location-input" type="text" placeholder="Address" class="input is-rounded is-fullwidth">
                             <span class="icon is-small is-left" aria-hidden="true">
                                 <i class="bi-geo-alt-fill"></i>
                             </span>
@@ -89,76 +89,78 @@
                     </div> -->
                     
                     <div class="panel-block">
-                        <button class="button is-primary is-fullwidth" disabled>Go!</button>
+                        <button id="go-button" class="button is-primary is-fullwidth" disabled>Go!</button>
                     </div>
                 </div>
                 
-            </div>
+            </section>
 
-            <div class="column is-primary">
+            <section id="results-section" class="column is-primary">
 
                 <div class="box is-info">
-                    <p class="box-header">
+                    <p id="when-and-where" class="box-header">
                         <h2 class="is-size-4">July 25, 1999 in Lagos, Ethiopia</h2>
                     </p>
                 </div>
 
-                <article class="media">
-                    <figure class="media-left">
-                        <p class="icon">
-                            <i class="bi-thermometer"></i>
-                        </p>
-                    </figure>
-                    <div class="media-content">
-                        <div class="content">
-                            <p>24.1&deg; C</p>
+                <div id="weather-features">
+                    <article class="media">
+                        <figure class="media-left">
+                            <p class="icon">
+                                <i class="bi-thermometer" role="img" aria-label="Temperature"></i>
+                            </p>
+                        </figure>
+                        <div class="media-content">
+                            <div class="content">
+                                <p>24.1&deg; C</p>
+                            </div>
                         </div>
-                    </div>
-                </article>
+                    </article>
 
-                <article class="media">
-                    <figure class="media-left">
-                        <p class="icon">
-                            <i class="bi-droplet"></i>
-                        </p>
-                    </figure>
-                    <div class="media-content">
-                        <div class="content">
-                            <p>93% humidity, 91% cloud cover</p>
+                    <article class="media">
+                        <figure class="media-left">
+                            <p class="icon">
+                                <i class="bi-droplet" role="img" aria-label="Humidity"></i>
+                            </p>
+                        </figure>
+                        <div class="media-content">
+                            <div class="content">
+                                <p>93% humidity, 91% cloud cover</p>
+                            </div>
                         </div>
-                    </div>
-                </article>
+                    </article>
 
-                <article class="media">
-                    <figure class="media-left">
-                        <p class="icon">
-                            <i class="bi-umbrella"></i>
-                        </p>
-                    </figure>
-                    <div class="media-content">
-                        <div class="content">
-                            <p>Very low precipitation</p>
+                    <article class="media">
+                        <figure class="media-left">
+                            <p class="icon">
+                                <i class="bi-umbrella" role="img" aria-label="Precipitation"></i>
+                            </p>
+                        </figure>
+                        <div class="media-content">
+                            <div class="content">
+                                <p>Very low precipitation</p>
+                            </div>
                         </div>
-                    </div>
-                </article>
+                    </article>
 
-                <article class="media">
-                    <figure class="media-left">
-                        <p class="icon">
-                            <i class="bi-wind" title="wind speed and direction"></i>
-                        </p>
-                    </figure>
-                    <div class="media-content">
-                        <div class="content">
-                            <p>5 m/s SW</p>
+                    <article class="media">
+                        <figure class="media-left">
+                            <p class="icon">
+                                <i class="bi-wind" title="Wind speed and direction"></i>
+                            </p>
+                        </figure>
+                        <div class="media-content">
+                            <div class="content">
+                                <p>5 m/s SW</p>
+                            </div>
                         </div>
-                    </div>
-                </article>
+                    </article>
+                </div>
                 
-            </div>
+            </section>
 
         </div>
-    </section>
+    </main>
 
     <footer class="footer mt-6">
         <div class="content has-text-centered">
