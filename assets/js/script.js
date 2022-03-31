@@ -24,7 +24,7 @@ var locationSubmitHandler = function(event) {
 
 var getAddressWeatherData = function(address) {
     // format the oikos api url
-    var apiUrl = "https://api.oikolab.com/weather/?api-key=deee70cd14c24615bca5e1bdf08ead2c&location=" + address;
+    var apiUrl = "https://api.oikolab.com/weather/?api-key=APIKEY&location=" + address;
   
     // make a get request to url
     fetch(apiUrl)
