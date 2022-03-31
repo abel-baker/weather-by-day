@@ -47,13 +47,13 @@
     <main class="container">
         <div class="columns is-centered is-one-third">
             
-            <section class="column is-one-third">
+            <form id="date-and-location-form" name="Date and Location Select" class="column is-one-third">
                 <div class="panel is-primary">
                     <p class="panel-heading">Date select</p>
-                    <p class="panel-block">Pick a day to remember the weather</p>
+                    <p class="panel-block"><label for="date-input">Pick a day to remember the weather</label></p>
                     <div class="panel-block">
                         <div class="control has-icons-left">
-                            <input id="date-input" type="date" class="input is-rounded is-fullwidth">
+                            <input id="date-input" type="date" class="input is-rounded is-fullwidth" required>
                             <span class="icon is-small is-left">
                                 <i class="bi-calendar-event-fill" aria-hidden="true"></i>
                             </span>
@@ -63,48 +63,31 @@
 
                 <div class="panel is-primary">
                     <p class="panel-heading">Location select</p>
-                    <p class="panel-block">Put in a city around the world </p>
+                    <p class="panel-block"><label for="location-input">Put in a city around the world</label></p>
 
                     <div class="panel-block">
                         <div class="control has-icons-left is-expanded">
-                            <input id="location-input" type="text" placeholder="Address" class="input is-rounded is-fullwidth">
+                            <input id="location-input" type="text" placeholder="Address" class="input is-rounded is-fullwidth" required>
                             <span class="icon is-small is-left" aria-hidden="true">
                                 <i class="bi-geo-alt-fill"></i>
                             </span>
                         </div>
                     </div>
-
-                    <!-- <div class="panel-block">
-                        <div class="control is-expanded">
-                            <div class="select is-fullwidth is-small">
-                                <select name="address">
-                                    <option selected>Try an interesting place...</option>
-                                    <option>Washington Monument, Washington, D.C.</option>
-                                    <option>Grand Canyon, Arizona</option>
-                                    <option>I.M. Pei Building, Hong Kong</option>
-                                    <option>Victoria Falls, Zambia & Zimbabwe</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div> -->
                     
                     <div class="panel-block">
-                        <button id="go-button" class="button is-primary is-fullwidth" disabled>Go!</button>
+                        <button id="go-button" class="button is-primary is-fullwidth">Go!</button>
                     </div>
                 </div>
-                
-            </section>
+            </form>
 
-            <section id="results-section" class="column is-primary">
+            <output id="results-section" form="date-and-location-form" for="date-input location-input" class="column is-primary">
 
-                <div class="box is-info">
-                    <p id="when-and-where" class="box-header">
-                        <h2 class="is-size-4">July 25, 1999 in Lagos, Ethiopia</h2>
-                    </p>
-                </div>
+                <section id="when-and-where" class="box">
+                    <h2 class="is-size-4">July 25, 1999 in Lagos, Nigeria</h2>
+                </section>
 
-                <div id="weather-features">
-                    <article class="media">
+                <section id="weather-features" class="">
+                    <article class="media px-4">
                         <figure class="media-left">
                             <p class="icon">
                                 <i class="bi-thermometer" role="img" aria-label="Temperature"></i>
@@ -112,12 +95,12 @@
                         </figure>
                         <div class="media-content">
                             <div class="content">
-                                <p>24.1&deg; C</p>
+                                <p>24.1&deg; C / 75&deg; F</p>
                             </div>
                         </div>
                     </article>
 
-                    <article class="media">
+                    <article class="media px-4">
                         <figure class="media-left">
                             <p class="icon">
                                 <i class="bi-droplet" role="img" aria-label="Humidity"></i>
@@ -125,12 +108,25 @@
                         </figure>
                         <div class="media-content">
                             <div class="content">
-                                <p>93% humidity, 91% cloud cover</p>
+                                <p>93% humidity</p>
                             </div>
                         </div>
                     </article>
 
-                    <article class="media">
+                    <article class="media px-4">
+                        <figure class="media-left">
+                            <p class="icon">
+                                <i class="bi-cloud" role="img" aria-label="Cloud Coverage"></i>
+                            </p>
+                        </figure>
+                        <div class="media-content">
+                            <div class="content">
+                                <p>91% cloud cover</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="media px-4">
                         <figure class="media-left">
                             <p class="icon">
                                 <i class="bi-umbrella" role="img" aria-label="Precipitation"></i>
@@ -143,7 +139,7 @@
                         </div>
                     </article>
 
-                    <article class="media">
+                    <article class="media px-4">
                         <figure class="media-left">
                             <p class="icon">
                                 <i class="bi-wind" title="Wind speed and direction"></i>
@@ -155,9 +151,9 @@
                             </div>
                         </div>
                     </article>
-                </div>
+                </section>
                 
-            </section>
+            </output>
 
         </div>
     </main>
