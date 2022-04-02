@@ -1,20 +1,21 @@
 var dateInputEl = document.querySelector("#date-input");
-var addressInputEl = document.querySelector("#address-input");
-var locationPresetEl = document.querySelector("#location-options");
-var locationSelectContainer = document.querySelector("#main-container");
-var weatherContainerEl = document.querySelector("#weather-container");
+var addressInputEl = document.querySelector("#location-input");
+var locationSelectContainer = document.querySelector("#date-and-location-form");
+var weatherContainerEl = document.querySelector("#weather-features");
 var address;
+var date;
 
 var locationSubmitHandler = function(event) {
     // prevent page from refreshing
     event.preventDefault();
-  
+
     // get value from input element
     address = addressInputEl.value.trim();
-  
-    if (address) {
-      getAddressWeatherData(address);
-  
+    date = dateInputEl.value.trim();
+
+    if (date && address) {
+      getWeatherData(date, address);
+
       // clear old content
       weatherContainerEl.textContent = "";
     } else {
@@ -22,11 +23,11 @@ var locationSubmitHandler = function(event) {
     }
 };
 
-var getAddressWeatherData = function(address) {
+var getWeatherData = function(weatherDateAddress) {
     // format the oikos api url
-    var apiUrl = "https://api.oikolab.com/weather/?api-key=APIKEY&location=" + address;
-  
-    // make a get request to url
+    var apiUrl = "https://shrouded-forest-37296.herokuapp.com/https://api.oikolab.com/weather/?api-key=APIKEY&location=" + address + "&start=" + date + "&end=" + date;
+
+    // make a fetch request to url
     fetch(apiUrl)
       .then(function(response) {
         // request was successful
@@ -45,6 +46,4 @@ var getAddressWeatherData = function(address) {
       });
   };
 
-
-  locationSelectContainer.addEventListener("submit", locationSubmitHandler);
-  
+locationSelectContainer.addEventListener("submit", locationSubmitHandler);
