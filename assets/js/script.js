@@ -49,7 +49,7 @@ var getWeatherData = function(addressLocationData) {
       });
   };
 
-  var displayWeatherData = function(historicalWeatherData, searchTerm) {
+  var displayWeatherData = function(historicalWeatherData) {
     // check if api returned any repos
     if (historicalWeatherData.length === 0) {
       repoContainerEl.textContent = "No weather data found. Update your search parameters and please try again.";
