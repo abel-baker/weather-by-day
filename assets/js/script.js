@@ -28,7 +28,7 @@ var locationSubmitHandler = function(event) {
 
 var getWeatherData = function(addressLocationData) {
     // format the Visual Crossing API url - returned data in US units
-    var apiUrl = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/weatherdata/history?&aggregateHours=24&startDateTime=" + date +"T00:00:00&endDateTime=" + date + "T00:00:00&unitGroup=us&contentType=json&dayStartTime=0:0:00&dayEndTime=0:0:00&location=" + address + "&key=TG354CRJY4Z63JNSXQG9GRMXE"; // update address to use Mapbox API
+    var apiUrl = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/weatherdata/history?&aggregateHours=24&startDateTime=" + date +"T00:00:00&endDateTime=" + date + "T00:00:00&unitGroup=us&contentType=json&dayStartTime=0:0:00&dayEndTime=0:0:00&location=" + address + "&key=APIKEY"; // update address to use Mapbox API
     
     // make a fetch request to url
     fetch(apiUrl)
