@@ -3,9 +3,6 @@ var addressInputEl = document.querySelector("#location-input");
 var locationSelectContainer = document.querySelector("#date-and-location-form");
 var weatherFeaturesEl = document.querySelector("#weather-features");
 var whenAndWhereContainerEl = document.querySelector("#when-and-where");
-// var address;
-// var date;
-// var historicalWeatherData;
 
 var locationSubmitHandler = function(event) {
     // prevent page from refreshing
@@ -65,7 +62,7 @@ var getWeatherData = function(date, address) {
         temperature: fetchData.locations[address].values[0].temp + "°F",
         humidity: fetchData.locations[address].values[0].humidity + "% humidity",
         cloudCover: fetchData.locations[address].values[0].cloudcover + "% cloud cover",
-        precipitation: fetchData.locations[address].values[0].precip+ " precipitation",
+        precipitation: fetchData.locations[address].values[0].precip + " precipitation",
         windspeed: fetchData.locations[address].values[0].wspd + " m/s",
     };
 
