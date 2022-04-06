@@ -16,8 +16,8 @@ var locationSubmitHandler = function(event) {
       getWeatherData(date, address);
 
       // clear old content
-      // weatherFeaturesEl.textContent = "";
-      // whenAndWhereContainerEl.textContent = "";
+      weatherFeaturesEl.textContent = "";
+      whenAndWhereContainerEl.textContent = "";
     } else {
       alert("Please enter a valid date");
     }
@@ -79,12 +79,12 @@ var getWeatherData = function(date, address) {
   var displayWeatherData = function(fetchData, date, address) {
     // check if api returned any repos
     if (fetchData.length === 0) {
-      // whenAndWhereContainerEl.textContent = "No weather data found. Update your search parameters and please try again.";
+      whenAndWhereContainerEl.textContent = "No weather data found. Update your search parameters and please try again.";
       return;
     }
     
     console.log(fetchData);
-    // whenAndWhereContainerEl.innerHTML = `${date} in ${fetchData.locations[address].name}`;
+    whenAndWhereContainerEl.innerHTML = `${date} in ${fetchData.locations[address].name}`;
 
     // store returned weather data in obj for parsing later
     // Returns weatherDateObj
