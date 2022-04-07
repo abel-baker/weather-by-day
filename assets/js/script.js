@@ -55,7 +55,10 @@ var displayWeatherData = function (fetchData, date, address) {
   }
 
   console.log(fetchData);
-  whenAndWhereContainerEl.innerHTML = `${date} in ${fetchData.locations[address].name}`;
+  const locationH2 = document.createElement("h2");
+  locationH2.setAttribute("class", "is-size-4");
+  locationH2.textContent = `${date} in ${fetchData.locations[address].name}`;
+  whenAndWhereEl.appendChild(locationH2);
 
   // store returned weather data in obj for parsing later
   // Returns weatherDateObj
