@@ -36,6 +36,7 @@ var getWeatherData = function(date, address) {
           console.log(response);
           response.json().then(function(fetchData) {
             displayWeatherData(fetchData, date, address);
+            displayMapData(fetchData, address);
           });
         } else {
           alert("Error: " + response.statusText);
@@ -45,6 +46,35 @@ var getWeatherData = function(date, address) {
         alert("Unable to connect to Visual Crossing");
       });
   };
+
+  var displayMapData = function(fetchData, address) {
+    if (fetchData.length === 0) {
+      whenAndWhereContainerEl.textContent = "No weather data found. Update your search parameters and please try again.";
+      return;
+    }
+
+    const mapboxKey = "pk.eyJ1IjoiYWJlbC1iYWtlciIsImEiOiJjbDFtc3o5eDcwMnEwM2xxN2ZwMmVxaGtrIn0.SV657KdmvCUZgHPzj46b-g";
+
+    var dimensions = "500x400";
+    var lat = fetchData.locations[address].latitude;
+    var long = fetchData.locations[address].longitude;
+
+    var apiUrl = `https://api.mapbox.com/styles/v1/mapbox/light-v10/static/${long},${lat},12,0/${dimensions}?access_token=${mapboxKey}`;
+
+    document.querySelector("#map-container").innerHTML = `
+      <figure class="image box p-0" style="overflow: hidden">
+        <img src="${apiUrl}" alt="Map of ${address}">
+      </figure>`;
+
+    fetch(apiUrl)
+      .then(function(response) {
+        // request was successful
+        if (response.ok) {
+          console.log(response);
+
+        }
+      })
+  }
 
   var displayWeatherData = function(fetchData, date, address) {
     // check if api returned any repos
