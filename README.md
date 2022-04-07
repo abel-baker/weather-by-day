@@ -6,6 +6,8 @@ A small utility to look up the weather at a certain date in the past within the 
 
 The response to your weather query includes temperature, humidity, cloud cover, precipitation, and wind direction & speed, along with a map of the local area.  Weather data goes back to 1970, with results becoming finer and more accurate through the late 1980s and early 1990s.  Responsive for mobile, tablet, and desktop browsing.
 
+<img width="450" alt="weatherbydayPNG" src="https://user-images.githubusercontent.com/2822827/162255299-3a34e9d2-4fe1-4c51-a69d-d9f9d8d810dd.PNG">
+
 ## Utilities Used
 Weather data is provided by [Visual Crossing](https://www.visualcrossing.com/resources/documentation/weather-api/weather-api-documentation/#history).
 
