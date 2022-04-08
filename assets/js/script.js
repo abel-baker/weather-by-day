@@ -3,7 +3,9 @@ var addressInputEl = document.querySelector("#location-input");
 var locationInputEl = document.querySelector("#date-and-location-form");
 var weatherFeaturesEl = document.querySelector("#weather-features");
 var whenAndWhereContainerEl = document.querySelector("#when-and-where");
-var messageContainerEl = document.querySelector(".message");
+var messageInfoEl = document.querySelector(".message");
+var messageContainerEl = document.querySelector("#message-container");
+var closeNotificationEl = document.querySelector(".delete");
 
 var locationSubmitHandler = function (event) {
   // prevent page from refreshing
@@ -12,16 +14,32 @@ var locationSubmitHandler = function (event) {
   // get value from input element
   let address = addressInputEl.value.trim();
   let date = dateInputEl.value.trim();
+  
+  // remove warning styling for invalid input onblur
+  addressInputEl.onblur = addressOnblur;
+  dateInputEl.onblur = dateOnblur;
+  function addressOnblur() {
+    if (addressInputEl.classList.contains("is-danger"))
+    addressInputEl.classList.remove("is-danger");
+  }
+      
+  function dateOnblur() {
+    if (dateInputEl.classList.contains("is-danger")) {
+      dateInputEl.classList.remove("is-danger");
+    }     
+  }
 
   if (date && address) {
     getWeatherData(date, address);
 
-    // clear old content
-    weatherFeaturesEl.textContent = "";
-    whenAndWhereContainerEl.textContent = "";
   } else {
     alert("Please enter a valid date");
   }
+};
+
+var notificationClickHandler = function (event) {
+  messageInfo = messageContainerEl.querySelector(".notification");
+  messageContainerEl.removeChild(messageInfo);
 };
 
 var getWeatherData = function (date, address) {
@@ -78,29 +96,7 @@ var displayMapData = function (fetchData, address) {
 };
 
 var displayWeatherData = function (fetchData, date, address) {
-  // check if api returned any repos
-  if (fetchData.length === 0) {
-    whenAndWhereContainerEl.textContent =
-      "No weather data found. Update your search parameters and please try again.";
-    return;
-  }
-
-  if (fetchData.errorCode === 999) {
-    //Both date and location errors return 999, so filtering by invalid date first
-    if (date < "01/01/1970") {
-      dateInputEl.classList.add("is-danger");
-    } else {
-      dateInputEl.classList.add("is-danger");
-      locationInputEl.classList.add("is-danger");
-    }
-
-    messageContainerEl.innerHTML = `
-    <div class="notification is-danger is-light">
-      <button class="delete"></button>
-      <strong>Please fix the following issue and try again:</strong> ${fetchData.message}
-    </div>`;
-    return;
-  }
+  validateUserInputs(fetchData, date);
 
   const locationH2 = document.createElement("h2");
   locationH2.setAttribute("class", "is-size-4");
@@ -153,6 +149,39 @@ var displayWeatherData = function (fetchData, date, address) {
   }
 };
 
+var validateUserInputs = function (fetchData, date) {
+  // check if api returned any repos
+  if (fetchData.length === 0) {
+    whenAndWhereContainerEl.textContent =
+      "No weather data found. Update your search parameters and please try again.";
+    return;
+  }
+
+  if (fetchData.errorCode === 999) {
+    // both date and location errorcodes return 999, so filtering by invalid date first
+    if (date < "01/01/1970") {
+      dateInputEl.classList.add("is-danger");
+      // validating against an invalid location
+    } if (fetchData.message.includes("The geographic location")) {
+      addressInputEl.classList.add("is-danger");
+      // validating against a future date
+    } if (fetchData.message.includes("Historical data requests")) {
+      dateInputEl.classList.add("is-danger");
+    }
+
+    messageContainerEl.innerHTML = `
+    <div class="notification is-danger is-light">
+      <button class="delete"></button>
+      <strong>Please fix the following issue and try again:</strong> ${fetchData.message}
+    </div>`;
+    return;
+  } else {
+    // clear old content
+    weatherFeaturesEl.textContent = "";
+    whenAndWhereContainerEl.textContent = "";
+  }
+};
+
 function generateWeatherData(classHelper, label, weatherData) {
   const article = document.createElement("article");
   article.setAttribute("class", "media px-4");
@@ -181,3 +210,4 @@ function generateWeatherData(classHelper, label, weatherData) {
 }
 
 locationInputEl.addEventListener("submit", locationSubmitHandler);
+messageContainerEl.addEventListener("click", notificationClickHandler);
