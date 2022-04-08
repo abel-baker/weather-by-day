@@ -4,6 +4,8 @@ var addressInputEl = document.querySelector("#location-input");
 var locationSelectContainer = document.querySelector("#date-and-location-form");
 var weatherFeaturesEl = document.querySelector("#weather-features");
 var whenAndWhereContainerEl = document.querySelector("#when-and-where");
+var messageContainer = document.querySelector("#message-container");
+var closeMessageEl = document.querySelector("#close-message");
 
 var locationSubmitHandler = function (event) {
   // prevent page from refreshing
@@ -23,6 +25,10 @@ var locationSubmitHandler = function (event) {
     alert("Please enter a valid date");
   }
 };
+var closeMessageHandler = function (event) {
+  messageContainer.style.display = "none";
+  window.localStorage.setItem("intro-message-seen", "true");
+}
 
 var getWeatherData = function (date, address) {
   const APIKEY = "TG354CRJY4Z63JNSXQG9GRMXE";
@@ -141,7 +147,10 @@ function generateWeatherData(classHelper, label, weatherData) {
   return article;
 }
 
-
 locationSelectContainer.addEventListener("submit", locationSubmitHandler);
+closeMessageEl.addEventListener("click", closeMessageHandler);
 
-
+// Check localStorage for "intro message seen"
+if (!window.localStorage.getItem("intro-message-seen")) {
+  messageContainer.style.display = "initial";
+}
