@@ -1,178 +1,187 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
-    <title>Weather by Day</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+  <title>Weather by Day</title>
 </head>
+
 <body>
 
-    <!-- Header wrapper -->
-    <header class="hero is-small is-success mb-3">
-        <div class="hero-body">
-            <p class="title">
-                Weather by Day
-            </p>
-            <p class="subtitle">
-                <i class="bi-cloud" aria-hidden="true"></i> your cosmological calendar
-            </p>
-        </div>
-    </header>
+  <!-- Header wrapper -->
+  <header class="hero is-small is-success mb-3">
+    <div class="hero-body">
+      <p class="title">
+        Weather by Day
+      </p>
+      <p class="subtitle">
+        <i class="bi-cloud" aria-hidden="true"></i> your cosmological calendar
+      </p>
+    </div>
+  </header>
 
-    <!-- Info message -->
-    <section id="message-container" class="container mb-3">
-        <article class="message is-info">
-            <div class="message-header">
-                <p>Welcome to <strong>Weather by Day</strong></p>
-                <button id="close-message" class="delete" aria-label="Dismiss message"></button>
+  <!-- Info message -->
+  <section id="message-container" class="container mb-3">
+    <article class="message is-info">
+      <div class="message-header">
+        <p>Welcome to <strong>Weather by Day</strong></p>
+        <button id="close-message" class="delete" aria-label="Dismiss message"></button>
+      </div>
+      <div class="message-body">
+        <p class="block">
+          Have you ever wondered what the weather was like on the day you were born?
+          When it rained on the last day of your vacation, was it sunny and pleasant at home?
+          How bad the weather must have been <a
+            href="https://www.cleveland.com/weather/blog/2016/10/how_many_world_series_games_ha.html">to rain out the
+            fifth game of the World Series</a> in 2008?
+        </p>
+        <p class="block mb-0">
+          Satisfy your curiosity with Weather by Day. Just pick a day <strong>all the way back to 1950</strong> and a
+          place <strong>anywhere in the world</strong>.</p>
+        </p>
+      </div>
+    </article>
+  </section>
+
+  <!-- Main section wrapper -->
+  <main class="container">
+    <div class="columns is-centered is-one-third">
+
+      <form id="date-and-location-form" name="Date and Location Select" class="column is-one-third">
+        <div class="panel is-primary">
+          <p class="panel-heading">Date select</p>
+          <p class="panel-block"><label for="date-input">Pick a day to remember the weather</label></p>
+          <div class="panel-block">
+            <div class="control has-icons-left">
+              <input id="date-input" type="date" class="input is-rounded is-fullwidth" required>
+              <span class="icon is-small is-left">
+                <i class="bi-calendar-event-fill" aria-hidden="true"></i>
+              </span>
             </div>
-            <div class="message-body">
-                <p class="block">
-                    Have you ever wondered what the weather was like on the day you were born?
-                    When it rained on the last day of your vacation, was it sunny and pleasant at home?
-                    How bad the weather must have been <a href="https://www.cleveland.com/weather/blog/2016/10/how_many_world_series_games_ha.html">to rain out the fifth game of the World Series</a> in 2008?
-                </p>
-                <p class="block mb-0">
-                    Satisfy your curiosity with Weather by Day.  Just pick a day <strong>all the way back to 1950</strong> and a place <strong>anywhere in the world</strong>.</p>
-                </p>
+          </div>
+        </div>
+
+        <div class="panel is-primary">
+          <p class="panel-heading">Location select</p>
+          <p class="panel-block"><label for="location-input">Put in a city around the world</label></p>
+
+          <div class="panel-block">
+            <div class="control has-icons-left is-expanded">
+              <input id="location-input" type="text" placeholder="Address" class="input is-rounded is-fullwidth"
+                required>
+              <span class="icon is-small is-left" aria-hidden="true">
+                <i class="bi-geo-alt-fill"></i>
+              </span>
             </div>
-        </article>
-    </section>
+          </div>
 
-    <!-- Main section wrapper -->
-    <main class="container">
-        <div class="columns is-centered is-one-third">
-            
-            <form id="date-and-location-form" name="Date and Location Select" class="column is-one-third">
-                <div class="panel is-primary">
-                    <p class="panel-heading">Date select</p>
-                    <p class="panel-block"><label for="date-input">Pick a day to remember the weather</label></p>
-                    <div class="panel-block">
-                        <div class="control has-icons-left">
-                            <input id="date-input" type="date" class="input is-rounded is-fullwidth" required>
-                            <span class="icon is-small is-left">
-                                <i class="bi-calendar-event-fill" aria-hidden="true"></i>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="panel is-primary">
-                    <p class="panel-heading">Location select</p>
-                    <p class="panel-block"><label for="location-input">Put in a city around the world</label></p>
-
-                    <div class="panel-block">
-                        <div class="control has-icons-left is-expanded">
-                            <input id="location-input" type="text" placeholder="Address" class="input is-rounded is-fullwidth" required>
-                            <span class="icon is-small is-left" aria-hidden="true">
-                                <i class="bi-geo-alt-fill"></i>
-                            </span>
-                        </div>
-                    </div>
-                    
-                    <div class="panel-block">
-                        <button id="go-button" class="button is-primary is-fullwidth">Go!</button>
-                    </div>
-                </div>
-            </form>
-
-            <output id="results-section" form="date-and-location-form" for="date-input location-input" class="column is-primary">
-
-                <section id="when-and-where" class="box">
-                    <h2 class="is-size-4">July 25, 1999 in Lagos, Nigeria</h2>
-                </section>
-
-                <div id="output-flex" class="is-flex is-flex-wrap-wrap is-flex-direction-row is-justify-content-center">
-
-                    <section id="weather-features" class="is-flex-grow-1">
-                        <article class="media px-4">
-                            <figure class="media-left">
-                                <p class="icon">
-                                    <i class="bi-thermometer" role="img" aria-label="Temperature"></i>
-                                </p>
-                            </figure>
-                            <div class="media-content">
-                                <div class="content">
-                                    <p>24.1&deg; C / 75&deg; F</p>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="media px-4">
-                            <figure class="media-left">
-                                <p class="icon">
-                                    <i class="bi-droplet" role="img" aria-label="Humidity"></i>
-                                </p>
-                            </figure>
-                            <div class="media-content">
-                                <div class="content">
-                                    <p>93% humidity</p>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="media px-4">
-                            <figure class="media-left">
-                                <p class="icon">
-                                    <i class="bi-cloud" role="img" aria-label="Cloud Coverage"></i>
-                                </p>
-                            </figure>
-                            <div class="media-content">
-                                <div class="content">
-                                    <p>91% cloud cover</p>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="media px-4">
-                            <figure class="media-left">
-                                <p class="icon">
-                                    <i class="bi-umbrella" role="img" aria-label="Precipitation"></i>
-                                </p>
-                            </figure>
-                            <div class="media-content">
-                                <div class="content">
-                                    <p>Very low precipitation</p>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="media px-4">
-                            <figure class="media-left">
-                                <p class="icon">
-                                    <i class="bi-wind" title="Wind speed and direction"></i>
-                                </p>
-                            </figure>
-                            <div class="media-content">
-                                <div class="content">
-                                    <p>5 m/s SW</p>
-                                </div>
-                            </div>
-                        </article>
-                    </section>
-                    
-                    <section id="map-container" class="m-2">
-
-                    </section>
-                </div>
-                
-            </output>
-
+          <div class="panel-block">
+            <button id="go-button" class="button is-primary is-fullwidth">Go!</button>
+          </div>
         </div>
-    </main>
+      </form>
 
-    <footer class="footer mt-6">
-        <div class="content has-text-centered">
-            <p>This application uses the CSS framework <a href="https://bulma.io">Bulma</a> and <a href="https://icons.getbootstrap.com/">Bootstrap Icons</a>, static maps by <a href="https://docs.mapbox.com/api/overview/">Mapbox</a>, and archived weather data from <a href="https://www.visualcrossing.com/resources/documentation/weather-api/weather-api-documentation/#history">Visual Crossing</a>.</p>
+      <output id="results-section" form="date-and-location-form" for="date-input location-input"
+        class="column is-primary">
+
+        <section id="when-and-where" class="box">
+          <h2 class="is-size-4">July 25, 1999 in Lagos, Nigeria</h2>
+        </section>
+
+        <div id="output-flex" class="is-flex is-flex-wrap-wrap is-flex-direction-row is-justify-content-center">
+
+          <section id="weather-features" class="is-flex-grow-1">
+            <article class="media px-4">
+              <figure class="media-left">
+                <p class="icon">
+                  <i class="bi-thermometer" role="img" aria-label="Temperature"></i>
+                </p>
+              </figure>
+              <div class="media-content">
+                <div class="content">
+                  <p>24.1&deg; C / 75&deg; F</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="media px-4">
+              <figure class="media-left">
+                <p class="icon">
+                  <i class="bi-droplet" role="img" aria-label="Humidity"></i>
+                </p>
+              </figure>
+              <div class="media-content">
+                <div class="content">
+                  <p>93% humidity</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="media px-4">
+              <figure class="media-left">
+                <p class="icon">
+                  <i class="bi-cloud" role="img" aria-label="Cloud Coverage"></i>
+                </p>
+              </figure>
+              <div class="media-content">
+                <div class="content">
+                  <p>91% cloud cover</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="media px-4">
+              <figure class="media-left">
+                <p class="icon">
+                  <i class="bi-umbrella" role="img" aria-label="Precipitation"></i>
+                </p>
+              </figure>
+              <div class="media-content">
+                <div class="content">
+                  <p>Very low precipitation</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="media px-4">
+              <figure class="media-left">
+                <p class="icon">
+                  <i class="bi-wind" title="Wind speed and direction"></i>
+                </p>
+              </figure>
+              <div class="media-content">
+                <div class="content">
+                  <p>5 m/s SW</p>
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <section id="map-container" class="m-2">
+
+          </section>
         </div>
-    </footer>
-    <script src="./assets/js/script.js"></script>
+
+      </output>
+
+    </div>
+  </main>
+
+  <footer class="footer mt-6">
+    <div class="content has-text-centered">
+      <p>This application uses the CSS framework <a href="https://bulma.io">Bulma</a> and <a
+          href="https://icons.getbootstrap.com/">Bootstrap Icons</a>, static maps by <a
+          href="https://docs.mapbox.com/api/overview/">Mapbox</a>, and archived weather data from <a
+          href="https://www.visualcrossing.com/resources/documentation/weather-api/weather-api-documentation/#history">Visual
+          Crossing</a>.</p>
+    </div>
+  </footer>
+  <script src="./assets/js/script.js"></script>
 </body>
+
 </html>
-
-
-
