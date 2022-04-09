@@ -6,6 +6,7 @@ var whenAndWhereContainerEl = document.querySelector("#when-and-where");
 var messageInfoEl = document.querySelector(".message");
 var messageContainerEl = document.querySelector("#message-container");
 var closeNotificationEl = document.querySelector(".delete");
+var introMessageEl = document.querySelector("#intro-message");
 var closeIntroEl = document.querySelector("#close-message");
 
 var locationSubmitHandler = function (event) {
@@ -225,7 +226,7 @@ closeIntroEl.addEventListener("click", closeMessageHandler);
 
 // Check localStorage for "intro message seen"
 if (!window.localStorage.getItem("intro-message-seen")) {
-  messageContainerEl.style.display = "block";
+  introMessageEl.style.display = "block";
 }
 
 locationInputEl.addEventListener("submit", locationSubmitHandler);
