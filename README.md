@@ -21,6 +21,8 @@ Weather data is provided by [Visual Crossing](https://www.visualcrossing.com/res
 
 Static map images provided by [Mapbox](https://docs.mapbox.com/api/overview/).
 
+Date & time information provided by [Luxon](https://moment.github.io/luxon/#/).
+
 The interface was designed with the [Bulma](https://bulma.io) CSS framework using [Bootstrap Icons](https://icons.getbootstrap.com/).
 
 ## Future
