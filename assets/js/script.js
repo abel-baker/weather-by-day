@@ -6,6 +6,7 @@ var whenAndWhereContainerEl = document.querySelector("#when-and-where");
 var messageInfoEl = document.querySelector(".message");
 var messageContainerEl = document.querySelector("#message-container");
 var closeNotificationEl = document.querySelector(".delete");
+var closeIntroEl = document.querySelector("#close-message");
 
 var locationSubmitHandler = function (event) {
   // prevent page from refreshing
@@ -38,7 +39,7 @@ var locationSubmitHandler = function (event) {
   }
 };
 var closeMessageHandler = function (event) {
-  messageContainer.style.display = "none";
+  messageContainerEl.style.display = "none";
   window.localStorage.setItem("intro-message-seen", "true");
 }
 
@@ -218,6 +219,13 @@ function generateWeatherData(classHelper, label, weatherData) {
   article.appendChild(media);
 
   return article;
+}
+
+closeIntroEl.addEventListener("click", closeMessageHandler);
+
+// Check localStorage for "intro message seen"
+if (!window.localStorage.getItem("intro-message-seen")) {
+  messageContainerEl.style.display = "block";
 }
 
 locationInputEl.addEventListener("submit", locationSubmitHandler);
