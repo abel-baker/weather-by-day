@@ -107,7 +107,11 @@ var displayWeatherData = function (fetchData, date, address) {
 
   const locationH2 = document.createElement("h2");
   locationH2.setAttribute("class", "is-size-4");
-  locationH2.textContent = `${date} in ${fetchData.locations[address].name}`;
+
+  date = luxon.DateTime.fromFormat(date, "yyyy-MM-dd");
+  var formattedDate = date.toLocaleString(luxon.DateTime.DATE_FULL);
+
+  locationH2.textContent = `${formattedDate} in ${fetchData.locations[address].name}`;
   whenAndWhereContainerEl.appendChild(locationH2);
 
   // store returned weather data in obj for parsing later
@@ -119,7 +123,7 @@ var displayWeatherData = function (fetchData, date, address) {
       fetchData.locations[address].values[0].cloudcover + "% cloud cover",
     precipitation:
       fetchData.locations[address].values[0].precip + " precipitation",
-    windspeed: fetchData.locations[address].values[0].wspd + " m/s",
+    windspeed: fetchData.locations[address].values[0].wspd + " m/s"
   };
   weatherFeaturesEl.innerHTML = "";
 
