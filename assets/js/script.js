@@ -19,8 +19,9 @@ var locationSubmitHandler = function (event) {
   addressInputEl.onblur = addressOnblur;
   dateInputEl.onblur = dateOnblur;
   function addressOnblur() {
-    if (addressInputEl.classList.contains("is-danger"))
-    addressInputEl.classList.remove("is-danger");
+    if (addressInputEl.classList.contains("is-danger")) {
+      addressInputEl.classList.remove("is-danger");
+    }
   }
       
   function dateOnblur() {
@@ -36,6 +37,12 @@ var locationSubmitHandler = function (event) {
     alert("Please enter a valid date");
   }
 };
+
+function makeInitialCall() {
+  let date = "1999-07-25";
+  let address = "Lagos, Nigeria";
+  getWeatherData(date, address);
+}
 
 var notificationClickHandler = function (event) {
   messageInfo = messageContainerEl.querySelector(".notification");
@@ -150,7 +157,7 @@ var displayWeatherData = function (fetchData, date, address) {
 };
 
 var validateUserInputs = function (fetchData, date) {
-  // check if api returned any repos
+  // check if api returned any data
   if (fetchData.length === 0) {
     whenAndWhereContainerEl.textContent =
       "No weather data found. Update your search parameters and please try again.";
@@ -211,3 +218,4 @@ function generateWeatherData(classHelper, label, weatherData) {
 
 locationInputEl.addEventListener("submit", locationSubmitHandler);
 messageContainerEl.addEventListener("click", notificationClickHandler);
+document.addEventListener("DOMContentLoaded", makeInitialCall());
