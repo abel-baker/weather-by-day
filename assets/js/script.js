@@ -6,6 +6,8 @@ var whenAndWhereContainerEl = document.querySelector("#when-and-where");
 var messageInfoEl = document.querySelector(".message");
 var messageContainerEl = document.querySelector("#message-container");
 var closeNotificationEl = document.querySelector(".delete");
+var introMessageEl = document.querySelector("#intro-message");
+var closeIntroEl = document.querySelector("#close-message");
 
 var locationSubmitHandler = function (event) {
   // prevent page from refreshing
@@ -37,6 +39,10 @@ var locationSubmitHandler = function (event) {
     alert("Please enter a valid date");
   }
 };
+var closeMessageHandler = function (event) {
+  messageContainerEl.style.display = "none";
+  window.localStorage.setItem("intro-message-seen", "true");
+}
 
 function makeInitialCall() {
   let date = "1999-07-25";
@@ -218,6 +224,13 @@ function generateWeatherData(classHelper, label, weatherData) {
   article.appendChild(media);
 
   return article;
+}
+
+closeIntroEl.addEventListener("click", closeMessageHandler);
+
+// Check localStorage for "intro message seen"
+if (!window.localStorage.getItem("intro-message-seen")) {
+  introMessageEl.style.display = "block";
 }
 
 locationInputEl.addEventListener("submit", locationSubmitHandler);
