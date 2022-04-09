@@ -2,6 +2,8 @@
 
 A small utility to look up the weather at a certain date in the past within the range of the available data set.  Select any city or location in the world and a date to go along with it.  Then Weather by Day will tell you the weather conditions on that day.  A simple map accompanies the result.
 
+Application: [Weather by Day](https://abel-baker.github.io/weather-by-day/)
+
 ## Contributors
 
 * [abel-baker](https://github.com/abel-baker/) Seth K on UI design/map fetching
